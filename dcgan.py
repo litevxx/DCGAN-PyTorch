@@ -26,22 +26,22 @@ class Generator(nn.Module):
 
         # Input Dimension: (ngf*8) x 4 x 4
         self.tconv2 = nn.ConvTranspose2d(params['ngf']*8, params['ngf']*4,
-            4, 2, 1, bias=False)
+            2, 2, 1, bias=False)
         self.bn2 = nn.BatchNorm2d(params['ngf']*4)
 
         # Input Dimension: (ngf*4) x 8 x 8
         self.tconv3 = nn.ConvTranspose2d(params['ngf']*4, params['ngf']*2,
-            4, 2, 1, bias=False)
+            2, 2, 1, bias=False)
         self.bn3 = nn.BatchNorm2d(params['ngf']*2)
 
         # Input Dimension: (ngf*2) x 16 x 16
         self.tconv4 = nn.ConvTranspose2d(params['ngf']*2, params['ngf'],
-            4, 2, 1, bias=False)
+            2, 2, 1, bias=False)
         self.bn4 = nn.BatchNorm2d(params['ngf'])
 
         # Input Dimension: (ngf) * 32 * 32
         self.tconv5 = nn.ConvTranspose2d(params['ngf'], params['nc'],
-            4, 2, 1, bias=False)
+            2, 2, 1, bias=False)
         #Output Dimension: (nc) x 64 x 64
 
     def forward(self, x):
@@ -61,21 +61,21 @@ class Discriminator(nn.Module):
 
         # Input Dimension: (nc) x 64 x 64
         self.conv1 = nn.Conv2d(params['nc'], params['ndf'],
-            4, 2, 1, bias=False)
+            2, 2, 1, bias=False)
 
         # Input Dimension: (ndf) x 32 x 32
         self.conv2 = nn.Conv2d(params['ndf'], params['ndf']*2,
-            4, 2, 1, bias=False)
+            2, 2, 1, bias=False)
         self.bn2 = nn.BatchNorm2d(params['ndf']*2)
 
         # Input Dimension: (ndf*2) x 16 x 16
         self.conv3 = nn.Conv2d(params['ndf']*2, params['ndf']*4,
-            4, 2, 1, bias=False)
+            2, 2, 1, bias=False)
         self.bn3 = nn.BatchNorm2d(params['ndf']*4)
 
         # Input Dimension: (ndf*4) x 8 x 8
         self.conv4 = nn.Conv2d(params['ndf']*4, params['ndf']*8,
-            4, 2, 1, bias=False)
+            2, 2, 1, bias=False)
         self.bn4 = nn.BatchNorm2d(params['ndf']*8)
 
         # Input Dimension: (ndf*8) x 4 x 4
