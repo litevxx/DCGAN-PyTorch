@@ -24,10 +24,10 @@ params = {
     'nz' : 100,# Size of the Z latent vector (the input to the generator).
     'ngf' : 64,# Size of feature maps in the generator. The depth will be multiples of this.
     'ndf' : 64, # Size of features maps in the discriminator. The depth will be multiples of this.
-    'nepochs' : 10,# Number of training epochs.
+    'nepochs' : 5,# Number of training epochs.
     'lr' : 0.0002,# Learning rate for optimizers
     'beta1' : 0.5,# Beta1 hyperparam for Adam optimizer
-    'save_epoch' : 2}# Save step.
+    'save_epoch' : 1}# Save step.
 
 # Use GPU is available else use CPU.
 device = torch.device("cuda:0" if(torch.cuda.is_available()) else "cpu")
@@ -44,7 +44,8 @@ plt.title("Training Images")
 plt.imshow(np.transpose(vutils.make_grid(
     sample_batch[0].to(device)[ : 64], padding=2, normalize=True).cpu(), (1, 2, 0)))
 
-plt.show()
+#plt.show()
+plt.savefig("training_images.png")
 
 # Create the generator.
 netG = Generator(params).to(device)
@@ -193,12 +194,11 @@ plt.plot(D_losses,label="D")
 plt.xlabel("iterations")
 plt.ylabel("Loss")
 plt.legend()
-plt.show()
-
+#plt.show()
+plt.savefig('loss.png')
 # Animation showing the improvements of the generator.
 fig = plt.figure(figsize=(8,8))
 plt.axis("off")
 ims = [[plt.imshow(np.transpose(i,(1,2,0)), animated=True)] for i in img_list]
 anim = animation.ArtistAnimation(fig, ims, interval=1000, repeat_delay=1000, blit=True)
-plt.show()
 anim.save('celeba.gif', dpi=80, writer='imagemagick')
