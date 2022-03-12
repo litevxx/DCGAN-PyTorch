@@ -79,7 +79,7 @@ class Discriminator(nn.Module):
         self.bn4 = nn.BatchNorm2d(params['ndf']*8)
 
         # Input Dimension: (ndf*8) x 4 x 4
-        self.conv5 = nn.Conv2d(params['ndf']*8, 1, 4, 1, 0, bias=False)
+        self.conv5 = nn.Conv2d(params['ndf']*8, 1, 2, 1, 0, bias=False)
 
     def forward(self, x):
         x = F.leaky_relu(self.conv1(x), 0.2, True)
