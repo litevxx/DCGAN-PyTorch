@@ -18,7 +18,7 @@ print("Random Seed: ", seed)
 
 # Parameters to define the model.
 params = {
-    "bsize" : 128,# Batch size during training.
+    "bsize" : 512,# Batch size during training.
     'imsize' : 32,# Spatial size of training images. All images will be resized to this size during preprocessing.
     'nc' : 3,# Number of channles in the training images. For coloured images this is 3.
     'nz' : 100,# Size of the Z latent vector (the input to the generator).
@@ -98,7 +98,7 @@ for epoch in range(params['nepochs']):
         # Make accumalated gradients of the discriminator zero.
         netD.zero_grad()
         # Create labels for the real data. (label=1)
-        label = torch.full((512, ), real_label, device=device, dtype=torch.float)
+        label = torch.full((b_size, ), real_label, device=device)
         output = netD(real_data).view(-1)
         errD_real = criterion(output, label)
         # Calculate gradients for backpropagation.
