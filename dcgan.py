@@ -21,7 +21,7 @@ class Generator(nn.Module):
 
         # Input is the latent vector Z.
         self.tconv1 = nn.ConvTranspose2d(params['nz'], params['ngf']*8,
-            kernel_size=4, stride=1, padding=0, bias=False)
+            kernel_size=2, stride=1, padding=0, bias=False)
         self.bn1 = nn.BatchNorm2d(params['ngf']*8)
 
         # Input Dimension: (ngf*8) x 4 x 4
