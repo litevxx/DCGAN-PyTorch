@@ -26,22 +26,22 @@ class Generator(nn.Module):
 
         # Input Dimension: (ngf*8) x 4 x 4
         self.tconv2 = nn.ConvTranspose2d(params['ngf']*8, params['ngf']*4,
-            2, 2, 1, bias=False)
+            3, 2, 1, bias=False)
         self.bn2 = nn.BatchNorm2d(params['ngf']*4)
 
         # Input Dimension: (ngf*4) x 8 x 8
         self.tconv3 = nn.ConvTranspose2d(params['ngf']*4, params['ngf']*2,
-            2, 2, 1, bias=False)
+            3, 2, 1, bias=False)
         self.bn3 = nn.BatchNorm2d(params['ngf']*2)
 
         # Input Dimension: (ngf*2) x 16 x 16
         self.tconv4 = nn.ConvTranspose2d(params['ngf']*2, params['ngf'],
-            2, 2, 1, bias=False)
+            3, 2, 1, bias=False)
         self.bn4 = nn.BatchNorm2d(params['ngf'])
 
         # Input Dimension: (ngf) * 32 * 32
         self.tconv5 = nn.ConvTranspose2d(params['ngf'], params['nc'],
-            2, 2, 1, bias=False)
+            3, 2, 1, bias=False)
         #Output Dimension: (nc) x 64 x 64
 
     def forward(self, x):
