@@ -39,8 +39,14 @@ with torch.no_grad():
     generated_img = netG(noise).detach().cpu()
 
 # Display the generated image.
+#plt.axis("off")
+#plt.title("Generated Images")
+#plt.imshow(np.transpose(vutils.make_grid(generated_img, padding=2, normalize=True), (1,2,0)))
+
+#plt.show()
+
+# make them into a grid, then save them into a file, generated.png
 plt.axis("off")
 plt.title("Generated Images")
 plt.imshow(np.transpose(vutils.make_grid(generated_img, padding=2, normalize=True), (1,2,0)))
-
-plt.show()
+plt.savefig('generated.png')
