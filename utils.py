@@ -3,7 +3,7 @@ import torchvision.transforms as transforms
 import torchvision.datasets as dset
 
 # Directory containing the data.
-root = 'data/celeba'
+root = '/kaggle/working/dataset/'
 
 def get_celeba(params):
     """
