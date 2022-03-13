@@ -18,16 +18,16 @@ print("Random Seed: ", seed)
 
 # Parameters to define the model.
 params = {
-    "bsize" : 32,# Batch size during training.
+    "bsize" : 16,# Batch size during training.
     'imsize' : 32,# Spatial size of training images. All images will be resized to this size during preprocessing.
     'nc' : 3,# Number of channles in the training images. For coloured images this is 3.
     'nz' : 100,# Size of the Z latent vector (the input to the generator).
     'ngf' : 64,# Size of feature maps in the generator. The depth will be multiples of this.
     'ndf' : 64, # Size of features maps in the discriminator. The depth will be multiples of this.
-    'nepochs' : 5,# Number of training epochs.
+    'nepochs' : 10,# Number of training epochs.
     'lr' : 0.0002,# Learning rate for optimizers
     'beta1' : 0.5,# Beta1 hyperparam for Adam optimizer
-    'save_epoch' : 1}# Save step.
+    'save_epoch' : 2}# Save step.
 
 # Use GPU is available else use CPU.
 device = torch.device("cuda:0" if(torch.cuda.is_available()) else "cpu")
