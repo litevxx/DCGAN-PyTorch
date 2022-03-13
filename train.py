@@ -175,7 +175,7 @@ for epoch in range(params['nepochs']):
             'optimizerG' : optimizerG.state_dict(),
             'optimizerD' : optimizerD.state_dict(),
             'params' : params
-            }, 'model/model_epoch_{}.pth'.format(epoch))
+            }, '/kaggle/working/model_epoch_{}.pth'.format(epoch))
 
 # Save the final trained model.
 torch.save({
@@ -184,7 +184,7 @@ torch.save({
             'optimizerG' : optimizerG.state_dict(),
             'optimizerD' : optimizerD.state_dict(),
             'params' : params
-            }, 'model/model_final.pth')
+            }, '/kaggle/working/model_final.pth')
 
 # Plot the training losses.
 plt.figure(figsize=(10,5))
