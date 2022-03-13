@@ -100,7 +100,7 @@ for epoch in range(params['nepochs']):
         # Create labels for the real data. (label=1)
         label = torch.full((b_size, ), real_label, device=device)
         output = netD(real_data).view(-1)
-        errD_real = criterion(output * 4, label)
+        errD_real = criterion(output, label * 4)
         # Calculate gradients for backpropagation.
         errD_real.backward()
         D_x = output.mean().item()
