@@ -27,7 +27,7 @@ params = {
     'nepochs' : 1000,# Number of training epochs.
     'lr' : 0.0002,# Learning rate for optimizers
     'beta1' : 0.5,# Beta1 hyperparam for Adam optimizer
-    'save_epoch' : 2}# Save step.
+    'save_epoch' : 10}# Save step.
 
 # Use GPU is available else use CPU.
 device = torch.device("cuda:0" if(torch.cuda.is_available()) else "cpu")
